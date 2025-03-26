@@ -4,6 +4,4 @@ import { Routes } from '@angular/router';
 export const routes: Routes = 
 [
     //Prueba 
-    //paths de las rutas ejemplo
-    //{path: 'carpeta', component: Component}
 ];
