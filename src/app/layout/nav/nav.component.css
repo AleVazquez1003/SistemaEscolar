@@ -1,0 +1,7 @@
+a {
+    text-decoration: none; /* Elimina el subrayado por defecto */
+}
+
+a:hover {
+    text-decoration: none; /* Elimina el subrayado al pasar el ratón */
+}
