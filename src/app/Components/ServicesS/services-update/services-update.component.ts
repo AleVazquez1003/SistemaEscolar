@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../../Services/service.service';
-import { Services } from '../../../Data/interface/Service.model';
+import { Service } from '../../../Data/interface/Service.model';
 import { Student } from '../../../Data/interface/Student.model';
 import { servicetype } from '../../../Data/interface/servicetype.model';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';  
@@ -19,12 +19,12 @@ export class ServicesUpdateComponent implements OnInit {
 
   ServiceForm!: FormGroup; 
   serviceId!: number;  
-  serviceData!: Services
+  serviceData!: Service;
 
   constructor(
     private route: ActivatedRoute,  
     private fb: FormBuilder,  
-    private serverService: ServiceTypeService,  
+    private serverService: ServiceService,  
     private router: Router  
   ) { }
 
@@ -39,19 +39,18 @@ export class ServicesUpdateComponent implements OnInit {
       studentId: ['', [Validators.required]]
     });
 
-    
     this.loadServiceData();
   }
 
   loadServiceData() {
-    this.serverService.getServiceTypes().subscribe(data => {
-      const service = data.find(p => p.id === this.serviceId);  
+    this.serverService.getServices().subscribe(data => {
+      const service = data.find(p => p.id === this.serviceId);  // Encontrar el producto por ID
       if (service) {
-      
-        //this.serviceDatas = service;
+        this.serviceData = service;
         this.ServiceForm.setValue({
-          nameService: service.nameServiceType,
-          descripcion : service.description
+          nameService: service.nameServices,
+          idStudent : service.studentId, 
+          serviceType : service.serviceTypeId
         });
       } else {
         console.error('Producto no encontrado');
@@ -61,23 +60,23 @@ export class ServicesUpdateComponent implements OnInit {
 
   updateService() {
     if (this.ServiceForm.invalid) {
-      return;  // No enviar si el formulario es inválido
+      return;  
     }
 
-    const updatedService: Services = {
+    const updatedService: Service = {
       id: this.serviceId,
-      ...this.ServiceForm.value  // Obtener los datos actualizados del formulario
+      ...this.ServiceForm.value  
     };
 
-   // this.serverService.updateService(this.serviceId, updatedService).subscribe({
-   //   next: () => {
-   //     console.log('service');
-   //     this.router.navigate(['/service']);  // Redirigir a la lista de productos
-   //   },
-   //   error: err => {
-   //     console.error('Error al actualizar el servicio:', err);
-   //   }
-   // });
+    this.serverService.updateService(this.serviceId, updatedService).subscribe({
+     next: () => {
+       console.log('service');
+       this.router.navigate(['/service']);  // Redirigir a la lista de productos
+     },
+      error: err => {
+        console.error('Error al actualizar el servicio:', err);
+      }
+    });
   }
 
 }
