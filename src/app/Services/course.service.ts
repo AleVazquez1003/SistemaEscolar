@@ -1,12 +1,18 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from '../Data/interface/course.model';
+import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Course } from '../Data/interface/Course.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
+
 
   //Definir una propiedead de tipo URL (CAMBIAR URL)
   private urlAPI = 'http://localhost:5268/api/Course'
@@ -39,4 +45,23 @@ export class CourseService {
     public deleteCourse(id: number) :Observable<void>{
       return this.http.delete<void>(`${this.urlAPI}/${id}`);
     }
+
+  
+  private urlApi = "http://localhost:5268/api/Course";
+
+  constructor(private http: HttpClient) { }
+  
+  
+    // list course
+    public getCourse(): Observable <Course[]>{
+      return this.http.get<Course[]>(this.urlApi);
+    }
+
+    // LISTA PRODUCTOS POR ID
+      public getById(id:number):Observable <Course>
+      {
+        return this.http.get<Course>(`${this.urlApi}/${id}`);
+      }
+
+
 }

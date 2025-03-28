@@ -1,1 +1,23 @@
-<p>asignment-list works!</p>
+<div class="container mx-auto p-6">
+    
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Assigments</h2>
+    <hr>
+    <br>
+    <a routerLink="/products/create" class="bg-blue-700 text-white p-2 rounded">Nuevo Producto</a>
+    <br><br>
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <li *ngFor="let item of " 
+            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <div class="p-4">
+                <h3 class="text-lg font-semibold text-gray-800">{{ item }}</h3> valores
+                <p class="text-emerald-600 font-bold mt-2">${{ item }}</p>
+
+                 <br>
+                <!-- <a [routerLink]="['/products/update', item.id]" class="bg-blue-500 text-white p-2 rounded m-2">Actualizar</a> -->
+                <!-- <a [routerLink]="['/products/delete', item.id]" class="bg-red-600 text-white p-2 rounded m-2">Eliminar</a> -->
+            </div>
+        </li>
+    </ul>
+</div>
