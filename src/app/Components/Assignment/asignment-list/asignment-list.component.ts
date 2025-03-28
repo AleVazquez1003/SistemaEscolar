@@ -1,3 +1,4 @@
+
 import { Component,OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -7,6 +8,12 @@ import { AssignmentService } from '../../../Services/assignment.service';
 @Component({
   selector: 'app-asignment-list',
   imports: [NgFor,RouterLink],
+import { Component } from '@angular/core';
+import { NgFor } from '@angular/common';
+
+@Component({
+  selector: 'app-asignment-list',
+  imports: [NgFor],
   templateUrl: './asignment-list.component.html',
   styleUrl: './asignment-list.component.css'
 })
