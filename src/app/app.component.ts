@@ -7,7 +7,7 @@ import { HomeComponent } from './features/home/home.component';
 @Component({
   selector: 'app-root',
                           //importación de NavComponent
-  imports: [RouterOutlet, NavComponent, FooterComponent, HomeComponent],
+  imports: [RouterOutlet, NavComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

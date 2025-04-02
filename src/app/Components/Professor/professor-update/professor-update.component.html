@@ -1,1 +1,39 @@
-<p>professor-update works!</p>
+<div class="flex justify-center p-2">
+<form [formGroup]="productForm" (ngSubmit)="updateProfessor()" class="space-y-4 p-4 border rounded w-50 shadow-[0_5px_10px_2px_rgba(0,0,0,0.25)]">
+    <label for="nameProfessor" class="block font-semibold">Name Professor:</label>
+    <input type="text" id="nameProfessor" formControlName="nameProfessor" class="border p-2 w-full">
+    <div *ngIf="productForm.get('nameProfessor')?.invalid && productForm.get('nameProfessor')?.touched" class="text-red-500">
+      <small *ngIf="productForm.get('nameProfessor')?.errors?.['required']">El nombre es obligatorio.</small>
+      <small *ngIf="productForm.get('nameProfessor')?.errors?.['minlength']">El nombre debe tener al menos 4 caracteres.</small>
+    </div>
+  
+    <label for="lastNameProfessor" class="block font-semibold">Last Name Professor:</label>
+    <input type="text" id="lastNameProfessor" formControlName="lastNameProfessor" class="border p-2 w-full">
+    <div *ngIf="productForm.get('lastNameProfessor')?.invalid && productForm.get('lastNameProfessor')?.touched" class="text-red-500">
+      <small *ngIf="productForm.get('lastNameProfessor')?.errors?.['required']">El apellido es obligatorio.</small>
+      <small *ngIf="productForm.get('lastNameProfessor')?.errors?.['minlength']">El apellido debe tener al menos 4 caracteres.</small>
+    </div>
+
+    <label for="emailProfessor" class="block font-semibold">Email Professor:</label>
+    <input type="email" id="emailProfessor" formControlName="emailProfessor" class="border p-2 w-full">
+    <div *ngIf="productForm.get('emailProfessor')?.invalid && productForm.get('emailProfessor')?.touched" class="text-red-500">
+      <small *ngIf="productForm.get('emailProfessor')?.errors?.['required']">El correo es obligatorio.</small>
+      <small *ngIf="productForm.get('emailProfessor')?.errors?.['minlength']">El correo debe tener al menos 4 caracteres.</small>
+    </div>
+
+    <label for="degree" class="block font-semibold">Grado Professor:</label>
+    <input type="text" id="degree" formControlName="degree" class="border p-2 w-full">
+    <div *ngIf="productForm.get('degree')?.invalid && productForm.get('degree')?.touched" class="text-red-500">
+      <small *ngIf="productForm.get('degree')?.errors?.['required']">El grado es obligatorio.</small>
+      <small *ngIf="productForm.get('degree')?.errors?.['minlength']">El grado debe tener al menos 4 caracteres.</small>
+    </div>
+  
+    <div class="flex justify-center space-x-2 p-4">
+      <a routerLink="/Professor" class="bg-green-500 text-white p-2 rounded">Cancelar</a>
+      <button type="submit" class="bg-blue-500 text-white p-2 rounded">
+        Actualizar
+      </button>
+    </div>
+</form>
+</div>
+
