@@ -1,7 +1,6 @@
 
 import { Component,OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { Assignment} from '../../../Data/interface/Assignment.model';
 import { AssignmentService } from '../../../Services/assignment.service';
 

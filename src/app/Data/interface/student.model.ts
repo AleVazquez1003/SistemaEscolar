@@ -1,8 +1,8 @@
-export interface Student {
+export interface Student{
     id: number;
-    nameStudent: string;
-    lastNameStudent: string;
-    emailStudent: string;
-    phoneSudent: number;
-    courseId: number;
+    nameStuent: string,
+    lastNameStuden: string,
+    emailStudent: string,
+    phoneStudent: string, 
+    courseId :number
 }

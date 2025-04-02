@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Schedule } from '../../../Data/interface/Schedule.model';
 import { ScheduleService } from '../../../Services/schedule.service';
-import { NgFor } from '@angular/common';
-import { RouterLink } from '@angular/router';
-
 
 @Component({
   selector: 'app-schedule-list',
-  imports: [NgFor,RouterLink],
+  imports: [],
   templateUrl: './schedule-list.component.html',
   styleUrl: './schedule-list.component.css'
 })
